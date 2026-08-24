@@ -1,0 +1,9 @@
+.wa-btn {
+  display: inline-block;
+  padding: 10px 14px;
+  background: #25D366;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}

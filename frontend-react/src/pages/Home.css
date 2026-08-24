@@ -1,0 +1,430 @@
+/* ==================================================
+   LOKART PREMIUM HOME PAGE UI STYLES
+================================================== */
+
+/* Root Variables */
+:root {
+  --primary-dark-orange: #B86A28;
+  --light-orange-border: #F4D4B2;
+  --image-orange-border: #E8A95B;
+  --hover-border-red: #D9534F;
+  --cream-bg: #FFFAF6;
+  --text-color: #4A2A15;
+  --shadow-soft: 0 10px 30px rgba(184, 106, 40, 0.08);
+  --shadow-hover: 0 18px 35px rgba(217, 83, 79, 0.18), 0 0 18px rgba(232, 169, 91, 0.20);
+}
+
+/* Base Setup */
+.home-page {
+  background-color: var(--cream-bg);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   1. HERO SECTION
+================================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+  padding: 80px 0;
+}
+
+/* Welcome Badge */
+.eyebrow {
+  display: inline-block;
+  background-color: var(--cream-bg);
+  border: 1px solid var(--light-orange-border);
+  color: var(--primary-dark-orange);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(184, 106, 40, 0.06);
+}
+
+.hero-copy h1 {
+  font-size: 52px;
+  line-height: 1.25;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.lede {
+  color: #6d5240;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Hero Card */
+.hero-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 22px;
+  border: 1px solid var(--light-orange-border);
+  border-top: 14px solid var(--primary-dark-orange);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--hover-border-red);
+  border-top: 14px solid var(--primary-dark-orange);
+  box-shadow: var(--shadow-hover);
+}
+
+.hero-card h2 {
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.hero-card ul {
+  padding-left: 20px;
+}
+
+.hero-card li {
+  margin: 14px 0;
+  color: #6d5240;
+}
+
+.hero-card p {
+  line-height: 1.8;
+  color: #6d5240;
+}
+
+/* ==================================================
+   2. HEADINGS & SECTIONS
+================================================== */
+
+.section-block {
+  padding: 90px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-heading h2 {
+  font-size: 38px;
+  color: var(--text-color);
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Heading Center Underline Rule */
+.section-heading h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 4px;
+  background: var(--primary-dark-orange);
+  border-radius: 10px;
+}
+
+.section-heading p {
+  color: #6d5240;
+  font-size: 17px;
+  margin-top: 15px;
+}
+
+/* ==================================================
+   3. GRIDS & ALL CARDS SYSTEM
+================================================== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Base Card Style */
+.card {
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--light-orange-border);
+  border-top: 14px solid var(--primary-dark-orange);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+} 
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--hover-border-red);
+  border-top: 14px solid var(--primary-dark-orange);
+  box-shadow: var(--shadow-hover);
+  z-index: 2;
+}
+
+.card h3 {
+  color: var(--text-color);
+  padding: 20px 20px 10px;
+  font-size: 22px;
+}
+
+.card p {
+  color: #6d5240;
+  padding: 0 20px 20px;
+  line-height: 1.7;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 20px;
+}
+
+.product-meta strong {
+  color: var(--primary-dark-orange);
+  font-size: 22px;
+}
+
+.product-meta span {
+  background: #FFF3E8;
+  color: var(--primary-dark-orange);
+  border: 1px solid var(--light-orange-border);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.card .hero-actions {
+  padding: 0 20px 20px;
+}
+
+/* ==================================================
+   4. IMAGES
+================================================== */
+
+.card img {
+  width: calc(100% - 30px);
+  height: 220px;
+  object-fit: cover;
+  margin: 15px 15px 0 15px;
+  border: 4px solid var(--image-orange-border);
+  border-radius: 16px;
+  box-sizing: border-box;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.card:hover img {
+  border-color: var(--hover-border-red);
+  box-shadow:
+    0 12px 25px rgba(217, 83, 79, 0.25),
+    0 0 18px rgba(232, 169, 91, 0.18);
+  transform: scale(1.03);
+}
+/* ==================================================
+   5. FEATURE CARDS
+================================================== */
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 22px;
+  border: 1px solid var(--light-orange-border);
+  border-top: 14px solid var(--primary-dark-orange);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--hover-border-red);
+  border-top: 14px solid var(--primary-dark-orange);
+  box-shadow: var(--shadow-hover);
+}
+
+.feature-card h3 {
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: #6d5240;
+  line-height: 1.7;
+}
+
+/* ==================================================
+   6. STAT BOXES
+================================================== */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.stat-box {
+  background: #ffffff;
+  text-align: center;
+  padding: 35px 20px;
+  border-radius: 22px;
+  border: 1px solid var(--light-orange-border);
+  border-top: 14px solid var(--primary-dark-orange);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-8px);
+  border-color: var(--hover-border-red);
+  border-top: 14px solid var(--primary-dark-orange);
+  box-shadow: var(--shadow-hover);
+}
+
+.stat-box strong {
+  display: block;
+  font-size: 38px;
+  color: var(--primary-dark-orange);
+  margin-bottom: 10px;
+}
+
+.stat-box span {
+  color: #6d5240;
+  font-weight: 600;
+}
+
+/* ==================================================
+   7. BUTTONS
+================================================== */
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 13px 28px;
+  border-radius: 40px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-primary{
+    background:#B86A28;
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#C9752B;
+  transform: translateY(-2px);
+  border: 1px solid var(--hover-border-red);
+  box-shadow: 0 0 12px rgba(217, 83, 79, 0.30);
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: var(--primary-dark-orange);
+  border: 1px solid var(--light-orange-border);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background-color: #ffffff;
+  color: var(--primary-dark-orange);
+  border: 1px solid var(--hover-border-red);
+  box-shadow: 0 0 12px rgba(217, 83, 79, 0.30);
+}
+
+/* ==================================================
+   8. TESTIMONIAL STARS
+================================================== */
+
+/* For Unicode Stars / Heading Stars */
+.card h3 {
+  color: var(--primary-dark-orange);
+  text-shadow: 0 0 6px rgba(184, 106, 40, 0.25);
+}
+
+/* For React Icons (e.g., FaStar) / Dedicated Star Container */
+.rating-stars svg{
+    fill:#B86A28;
+    stroke:#8E4F1C;
+    stroke-width:1.3px;
+    filter:drop-shadow(0 0 3px rgba(184,106,40,.35));
+}
+
+.rating-stars svg {
+  color: var(--primary-dark-orange);
+  fill: var(--primary-dark-orange);
+  stroke: #8E4F1C;
+  stroke-width: 1.2px;
+}
+
+/* ==================================================
+   9. RESPONSIVE BREAKPOINTS
+================================================== */
+
+@media (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-copy h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-block {
+    padding: 60px 0;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .hero-copy h1 {
+    font-size: 32px;
+  }
+
+  .card-grid,
+  .trust-grid,
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

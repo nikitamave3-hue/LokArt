@@ -1,0 +1,81 @@
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+
+const normalizeUser = (rawUser) => {
+  if (!rawUser) return null;
+
+  if (typeof rawUser === "string") {
+    try {
+      return JSON.parse(rawUser);
+    } catch {
+      return null;
+    }
+  }
+
+  if (rawUser.user) return rawUser.user;
+  if (rawUser.data) {
+    if (rawUser.data.user) return rawUser.data.user;
+    return rawUser.data;
+  }
+
+  return rawUser;
+};
+
+const checkSessionValidity = () => {
+  const token = localStorage.getItem("token");
+  const localUser = localStorage.getItem("lokartUser");
+
+  if (!token || !localUser) {
+    return { isValid: false, user: null };
+  }
+
+  try {
+    const parsedData = JSON.parse(localUser);
+    const user = normalizeUser(parsedData);
+
+    return { isValid: true, user };
+  } catch (error) {
+    localStorage.removeItem("token");
+    localStorage.removeItem("lokartUser");
+    return { isValid: false, user: null };
+  }
+};
+
+const isAdminUser = (user) => {
+  const role = user?.role;
+  return typeof role === "string" && role.toLowerCase() === "admin";
+};
+
+export function ProtectedRoute() {
+  const { isValid } = checkSessionValidity();
+
+  if (!isValid) {
+    return <Navigate to="/login" state={{ from: window.location }} replace />;
+  }
+
+  return <Outlet />;
+}
+
+export function AdminRoute() {
+  const { isValid, user } = checkSessionValidity();
+
+  if (!isValid) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (!isAdminUser(user)) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
+  return <Outlet />;
+}
+
+export function PublicOnlyRoute() {
+  const { isValid, user } = checkSessionValidity();
+
+  if (isValid) {
+    return <Navigate to={isAdminUser(user) ? "/admin" : "/dashboard"} replace />;
+  }
+
+  return <Outlet />;
+}

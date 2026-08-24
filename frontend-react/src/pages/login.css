@@ -1,0 +1,171 @@
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff7ed;
+  font-family: Arial, sans-serif;
+}
+
+.login-box {
+  width: 300px;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-box input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.login-box button {
+  padding: 10px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #2563eb;
+}
+
+/* =========================
+   AUTH / SELL PRODUCT
+========================= */
+
+.auth-page {
+  min-height: calc(100vh - 100px);
+  padding: 45px 20px;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffe0b2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 650px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(123, 63, 0, 0.18);
+  border: 1px solid #edc9a8;
+  box-sizing: border-box;
+}
+
+.auth-card h2 {
+  margin: 0 0 8px;
+  text-align: center;
+  color: #7b3f00;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.form-note {
+  text-align: center;
+  color: #6b4b35;
+  margin: 0 0 25px;
+  line-height: 1.5;
+}
+
+.form-field {
+  margin-bottom: 17px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 15px;
+  border: 1px solid #d9b99a;
+  border-radius: 11px;
+  background: #fffaf5;
+  color: #3e2723;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #b86a28;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(184, 106, 40, 0.13);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #9a8172;
+}
+
+.form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-field input[type="file"] {
+  background: #ffffff;
+  padding: 11px;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(90deg, #7b3f00, #b86a28);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(123, 63, 0, 0.25);
+}
+
+.form-error {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  background: #fff0f0;
+  color: #b91c1c;
+  border: 1px solid #ffcaca;
+}
+
+.note-success {
+  padding: 12px;
+  border-radius: 9px;
+  background: #eefbf1;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .auth-page {
+    padding: 25px 12px;
+  }
+
+  .auth-card {
+    padding: 23px 18px;
+    border-radius: 16px;
+  }
+
+  .auth-card h2 {
+    font-size: 25px;
+  }
+}

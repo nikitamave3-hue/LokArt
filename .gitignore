@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.env*
+.vercel/
+structure/
+structure.7z
+backend/resetAdminPassword.js

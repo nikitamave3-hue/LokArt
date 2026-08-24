@@ -1,0 +1,142 @@
+.dashboard-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #fff7ed;
+}
+
+/* HEADER */
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+/* STATS */
+.stats-grid {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* SECTION */
+.section {
+  margin-top: 20px;
+}
+
+.action-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* BUTTONS */
+.action-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #e5e7eb;
+}
+
+.action-btn:hover {
+  background: #d1d5db;
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* EMPTY TEXT */
+.empty {
+  color: gray;
+}
+/* =========================================
+   CREATE ARTISAN PROFILE FORM
+========================================= */
+
+.dashboard-container form {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.dashboard-container form label {
+  display: block;
+  margin: 16px 0 7px;
+  color: #4a2a15;
+  font-weight: 700;
+}
+
+.dashboard-container form input,
+.dashboard-container form textarea,
+.dashboard-container form select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #d8c2ad;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.dashboard-container form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.dashboard-container form input:focus,
+.dashboard-container form textarea:focus,
+.dashboard-container form select:focus {
+  outline: none;
+  border-color: #b86a28;
+  box-shadow: 0 0 0 2px rgba(184, 106, 40, 0.12);
+}
+
+.dashboard-container form .btn {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #b86a28;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dashboard-container form .btn:hover {
+  background: #8f4f20;
+}
+
+.dashboard-container form .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .dashboard-container form {
+    width: 100%;
+  }
+
+  .dashboard-container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+

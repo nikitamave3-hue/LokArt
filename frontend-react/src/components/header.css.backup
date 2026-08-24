@@ -1,0 +1,778 @@
+/* =========================
+   HEADER MAIN
+========================= */
+
+.site-header {
+    background: linear-gradient(90deg, #7B3F00, #A05A2C);
+    padding: 12px 0;
+    width: 100%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+
+.header-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+
+/* =========================
+   BRAND / LOGO
+========================= */
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+
+.brand-logo {
+    width: 70px;
+    height: 70px;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 50%;
+
+    display: block;
+    flex-shrink: 0;
+}
+
+
+.brand-row strong {
+    color: white;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+
+.brand-copy {
+    color: #ddd;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: 1;
+    justify-content: center;
+}
+
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+
+.nav-link:hover,
+.nav-link.active {
+    color: #FFD166;
+}
+
+
+/* =========================
+   RIGHT CONTROLS
+========================= */
+
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+
+/* Language Button */
+
+.lang-switcher {
+    display: flex;
+    gap: 5px;
+}
+.lang-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.lang-btn.active {
+    background: #F4A261;
+    color: white;
+    border-color: #F4A261;
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-btn {
+    background: #E67E22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #D35400;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   PROFILE DROPDOWN
+========================= */
+
+.profile-box {
+    position: relative;
+}
+
+
+.profile-btn {
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #555;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+
+
+.dropdown {
+
+    position: absolute;
+
+    right: 0;
+    top: 45px;
+
+    background: white;
+
+    width: 230px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+
+    z-index: 1000;
+}
+
+
+
+.dropdown-item {
+
+    color: #222;
+
+    margin: 10px 0;
+
+    font-size: 14px;
+
+}
+
+
+
+.dropdown hr {
+
+    border: none;
+
+    border-top: 1px solid #ddd;
+
+}
+
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+
+@media (max-width: 1100px) {
+  .site-header {
+    padding: 10px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .header-grid {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .brand-row {
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    order: 3;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    justify-content: center;
+  }
+
+  .right-controls {
+    margin-left: auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .header-grid {
+    justify-content: center;
+  }
+
+  .brand-row {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brand-logo {
+    width: 58px;
+    height: 58px;
+  }
+
+  .brand-row strong {
+    font-size: 22px;
+  }
+
+  .nav-links {
+    width: 100%;
+    gap: 8px 12px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .right-controls {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: transparent;
+    border: 2px solid #b87333; /* optional */
+}
+.notification-dropdown{
+  position:absolute;
+  top:55px;
+  right:0;
+  width:320px;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  padding:15px;
+  z-index:9999;
+  color:#222;
+}
+
+.notification-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.notification-item{
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+
+.notification-item:last-child{
+  border-bottom:none;
+}
+
+.notification-item.unread{
+  background:#fff7ef;
+}
+
+.notification-item.read{
+  opacity:.7;
+}
+
+.notification-actions{
+  display:flex;
+  gap:8px;
+  margin-top:8px;
+}
+/* =========================
+   NOTIFICATION DROPDOWN
+========================= */
+
+.notification-dropdown{
+
+    position:absolute;
+
+    top:45px;
+    right:0;
+
+    width:330px;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+
+    z-index:9999;
+
+    color:#4A2A15;
+
+}
+
+
+
+/* Header */
+
+.notification-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-bottom:1px solid #eee;
+
+    padding-bottom:10px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.notification-header h3{
+
+    margin:0;
+
+    font-size:18px;
+
+}
+
+
+
+/* Mark all button */
+
+.notification-header button{
+
+    background:#E67E22;
+
+    color:white;
+
+    border:none;
+
+    padding:7px 12px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+}
+
+
+
+/* Notification item */
+
+.notification-item{
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    border-radius:10px;
+
+    background:#FFF7EF;
+
+}
+
+
+
+.notification-item.read{
+
+    opacity:.6;
+
+    background:#f5f5f5;
+
+}
+
+
+
+.notification-item strong{
+
+    font-size:15px;
+
+}
+
+
+
+.notification-item p{
+
+    margin:5px 0;
+
+    font-size:14px;
+
+}
+
+
+
+/* Action buttons */
+
+.notification-actions button{
+
+    border:none;
+
+    padding:6px 12px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    margin-right:8px;
+
+    font-size:12px;
+
+}
+
+
+
+.notification-actions button:first-child{
+
+    background:#A05A2C;
+
+    color:white;
+
+}
+
+
+
+.notification-actions button:last-child{
+
+    background:#D9534F;
+
+    color:white;
+
+}
+.notification-wrapper{
+  position:relative;
+  cursor:pointer;
+}
+
+.notification-badge{
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  background:red;
+  color:white;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:bold;
+}
+.nav-links {
+  position: relative;
+  z-index: 10000;
+}
+
+.nav-link {
+  position: relative;
+  z-index: 10001;
+  cursor: pointer;
+}
+/* =========================================================
+   FINAL RESPONSIVE HEADER FIX
+   Mobile + Small Laptop + Laptop + Large Screens
+========================================================= */
+
+/* Header ko kabhi viewport se bahar nahi jane dena */
+.site-header {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Main header container */
+.site-header .container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-left: clamp(12px, 2.5vw, 40px);
+  padding-right: clamp(12px, 2.5vw, 40px);
+  box-sizing: border-box;
+}
+
+/* Main row */
+.site-header .header-grid {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(10px, 2vw, 28px);
+  box-sizing: border-box;
+}
+
+/* Logo section */
+.site-header .brand-row {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.site-header .brand-logo {
+  width: clamp(52px, 5vw, 70px);
+  height: clamp(52px, 5vw, 70px);
+}
+
+.site-header .brand-row strong {
+  font-size: clamp(19px, 2vw, 26px);
+}
+
+.site-header .brand-copy {
+  font-size: clamp(11px, 1.1vw, 13px);
+}
+
+/* Navigation */
+.site-header .nav-links {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(8px, 1.3vw, 18px);
+}
+
+.site-header .nav-link {
+  white-space: nowrap;
+  font-size: clamp(12px, 1.15vw, 15px);
+}
+
+/* Right side */
+.site-header .right-controls {
+  flex: 0 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(6px, 1vw, 15px);
+}
+
+/* Buttons */
+.site-header .lang-btn,
+.site-header .login-btn,
+.site-header .profile-btn {
+  white-space: nowrap;
+}
+
+/* =========================================================
+   SMALL LAPTOP / TABLET
+========================================================= */
+
+@media (max-width: 1150px) {
+
+  .site-header .header-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .site-header .brand-row {
+    flex: 0 0 auto;
+  }
+
+  .site-header .nav-links {
+    order: 3;
+    width: 100%;
+    flex: 0 0 100%;
+    justify-content: center;
+  }
+
+  .site-header .right-controls {
+    flex: 0 0 auto;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+
+  .site-header {
+    padding: 10px 0 14px;
+  }
+
+  .site-header .container {
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .site-header .header-grid {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* Logo + text */
+  .site-header .brand-row {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .site-header .brand-logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  /* Right controls */
+  .site-header .right-controls {
+    width: 100%;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  /* Navigation */
+  .site-header .nav-links {
+    width: 100%;
+    flex: 0 0 auto;
+    order: 3;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 14px;
+    padding: 2px 0;
+  }
+
+  .site-header .nav-link {
+    font-size: 13px;
+    padding: 5px 2px;
+  }
+
+  /* Dropdown ko screen ke andar rakho */
+  .site-header .dropdown,
+  .site-header .notification-dropdown {
+    max-width: calc(100vw - 24px);
+    box-sizing: border-box;
+  }
+
+  .site-header .notification-dropdown {
+    width: min(330px, calc(100vw - 24px));
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .site-header .brand-logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .site-header .brand-row strong {
+    font-size: 19px;
+  }
+
+  .site-header .brand-copy {
+    font-size: 10px;
+  }
+
+  .site-header .nav-links {
+    gap: 4px 10px;
+  }
+
+  .site-header .nav-link {
+    font-size: 12px;
+  }
+
+  .site-header .right-controls {
+    gap: 5px;
+  }
+
+  .site-header .lang-btn,
+  .site-header .login-btn,
+  .site-header .profile-btn {
+    padding: 7px 10px;
+  }
+}
+
+/* =========================================================
+   PREVENT HORIZONTAL SCROLLING
+========================================================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+

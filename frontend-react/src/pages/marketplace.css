@@ -1,0 +1,279 @@
+.marketplace {
+  padding: 30px;
+  background: #fff7ed;
+  min-height: 100vh;
+}
+
+.marketplace-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.marketplace-badge {
+  background: #fff0df;
+  color: #b45309;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.marketplace-title {
+  text-align: center;
+  color: #ff7a00;
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+.marketplace-subtitle {
+  text-align: center;
+  color: #5b3b27;
+  margin: 0 auto 24px;
+  max-width: 760px;
+}
+
+.marketplace-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.marketplace-search,
+.marketplace-filters select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e0d7cd;
+  background: #fff;
+  min-width: 220px;
+  font-size: 15px;
+  outline: none;
+}
+
+.marketplace-search:focus,
+.marketplace-filters select:focus {
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.12);
+}
+
+.marketplace-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #eadfd5;
+  box-shadow: 0 6px 18px rgba(91, 59, 39, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(91, 59, 39, 0.18);
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  background: #f3eee8;
+}
+
+.product-body {
+  padding: 18px;
+}
+
+.product-chip {
+  display: inline-block;
+  background: #fff0df;
+  color: #b45309;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 9px;
+}
+
+.product-name {
+  font-size: 21px;
+  color: #222;
+  margin: 0 0 8px;
+}
+
+.product-desc {
+  color: #666;
+  min-height: 42px;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.product-price {
+  font-size: 23px;
+  color: #ff7a00;
+  font-weight: 800;
+  margin: 8px 0 12px;
+}
+
+.product-info {
+  margin: 7px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.product-info strong {
+  color: #3f2a1d;
+}
+
+.buy-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #ff7a00;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.buy-btn:hover {
+  background: #e96b00;
+}
+
+.buy-btn:disabled,
+.delete-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.delete-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 9px;
+  background: #dc2626;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+.loading,
+.error,
+.empty {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 22px;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.empty {
+  color: #666;
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.skeleton-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.skeleton-box {
+  background: linear-gradient(
+    90deg,
+    #f3f1ee 25%,
+    #e4ddd2 50%,
+    #f3f1ee 75%
+  );
+  background-size: 200% 100%;
+  border-radius: 12px;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 16px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 18px;
+  margin-bottom: 12px;
+}
+
+.skeleton-text.small {
+  width: 60%;
+}
+
+.skeleton-button {
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .marketplace {
+    padding: 20px 14px;
+  }
+
+  .product-grid,
+  .skeleton-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .marketplace-search,
+  .marketplace-filters select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .marketplace-filters {
+    width: 100%;
+  }
+}

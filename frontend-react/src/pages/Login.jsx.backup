@@ -1,0 +1,113 @@
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import API from "../api/api";
+import "./login.css";
+
+function Login({ t = {} }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const redirectTo = location.state?.from?.pathname || "/dashboard";
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e) => {
+    setErrorMessage("");
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleLogin = async (e) => {
+    if (e) e.preventDefault();
+
+    if (!formData.email.trim() || !formData.password.trim()) {
+      setErrorMessage("Please fill in all fields.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const { data } = await API.post("/users/login", formData);
+      const payload = data?.data || data;
+      const token = payload?.token || data?.token || payload?.data?.token;
+      const user = payload?.user || payload?.data || payload;
+
+      if (token) {
+        localStorage.setItem("token", token);
+      }
+
+      if (user) {
+        localStorage.setItem("lokartUser", JSON.stringify(user));
+      }
+
+      const userRole = (user?.role || payload?.role || "user").toString().toLowerCase();
+      if (userRole === "admin") {
+        navigate("/admin", { replace: true });
+      } else {
+        navigate(redirectTo, { replace: true });
+      }
+    } catch (error) {
+      const serverMessage = error.response?.data?.message || "Login failed. Please try again.";
+      setErrorMessage(serverMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="auth-page">
+      <div className="auth-card">
+        <h2>{t.loginTitle || "LokArt Login"}</h2>
+        <p className="form-note">Welcome back to the village marketplace.</p>
+
+        <form onSubmit={handleLogin}>
+          {errorMessage && <div className="form-error">{errorMessage}</div>}
+          <div className="form-field">
+            <input
+              type="email"
+              name="email"
+              placeholder={t.emailPlaceholder || "Email Address"}
+              value={formData.email}
+              onChange={handleChange}
+              disabled={isLoading}
+              required
+            />
+          </div>
+
+          <div className="form-field">
+            <input
+              type="password"
+              name="password"
+              placeholder={t.passwordPlaceholder || "Password"}
+              value={formData.password}
+              onChange={handleChange}
+              disabled={isLoading}
+              required
+            />
+          </div>
+
+          <button className="submit-btn" type="submit" disabled={isLoading}>
+            {isLoading ? (t.loginLoading || "Logging in...") : (t.login || "Login")}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default Login;

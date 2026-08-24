@@ -1,0 +1,685 @@
+/* =========================================================
+   LOKART HEADER
+   Stable responsive layout
+========================================================= */
+
+.site-header {
+  width: 100%;
+  background: linear-gradient(90deg, #7B3F00, #A05A2C);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 1000;
+  overflow: visible;
+}
+
+.site-header *,
+.site-header *::before,
+.site-header *::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.site-header .container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 12px 24px;
+}
+
+/* =========================
+   MAIN HEADER
+========================= */
+
+.site-header .header-grid {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+}
+
+/* =========================
+   LOGO / BRAND
+========================= */
+
+.site-header .brand-row {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  cursor: pointer;
+}
+
+.site-header .brand-row .logo {
+  width: 70px !important;
+  height: 70px !important;
+
+  min-width: 70px !important;
+  min-height: 70px !important;
+
+  max-width: 70px !important;
+  max-height: 70px !important;
+
+  display: block;
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+.site-header .brand-row > div {
+  min-width: 0;
+}
+
+.site-header .brand-row strong {
+  display: block;
+
+  color: white;
+
+  font-size: 26px;
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  white-space: nowrap;
+}
+
+.site-header .brand-copy {
+  margin: 3px 0 0;
+
+  color: #f5e7dc;
+
+  font-size: 13px;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.site-header .nav-links {
+  flex: 1 1 auto;
+
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 6px 12px;
+}
+
+.site-header .nav-link {
+  color: white;
+
+  text-decoration: none !important;
+
+  font-size: 15px;
+
+  line-height: 1.2;
+
+  padding: 7px 8px;
+
+  border-radius: 20px;
+
+  white-space: nowrap;
+
+  transition: 0.2s ease;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link.active {
+  color: #FFD166;
+
+  background: rgba(255,255,255,0.12);
+}
+
+/* =========================
+   RIGHT CONTROLS
+========================= */
+
+.site-header .right-controls {
+  flex: 0 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   LANGUAGE
+========================= */
+
+.site-header .lang-switcher {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.site-header .lang-btn {
+  background: transparent;
+
+  color: white;
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  padding: 8px 13px;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  white-space: nowrap;
+}
+
+.site-header .lang-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.site-header .lang-btn.active {
+  background: #F4A261;
+
+  border-color: #F4A261;
+}
+
+/* =========================
+   LOGIN / REGISTER
+========================= */
+
+.site-header .login-btn {
+  background: #E67E22;
+
+  color: white;
+
+  border: none;
+
+  padding: 10px 18px;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.site-header .login-btn:hover {
+  background: #D35400;
+
+  transform: translateY(-1px);
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.site-header .profile-box {
+  position: relative;
+
+  flex: 0 0 auto;
+}
+
+.site-header .profile-btn {
+  max-width: 190px;
+
+  background: rgba(255,255,255,0.1);
+
+  color: white;
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  padding: 9px 13px;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.site-header .dropdown {
+  position: absolute;
+
+  top: calc(100% + 8px);
+
+  right: 0;
+
+  width: 230px;
+
+  max-width: calc(100vw - 24px);
+
+  background: white;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+
+  z-index: 10000;
+
+  color: #222;
+}
+
+.site-header .dropdown-item {
+  color: #222;
+
+  margin: 10px 0;
+
+  font-size: 14px;
+
+  overflow-wrap: anywhere;
+}
+
+.site-header .dropdown hr {
+  border: none;
+
+  border-top: 1px solid #ddd;
+}
+
+/* =========================
+   NOTIFICATION
+========================= */
+
+.site-header .notification-wrapper {
+  position: relative;
+
+  cursor: pointer;
+}
+
+.site-header .notification-dropdown {
+  position: absolute;
+
+  top: calc(100% + 8px);
+
+  right: 0;
+
+  width: 330px;
+
+  max-width: calc(100vw - 24px);
+
+  max-height: 70vh;
+
+  overflow-y: auto;
+
+  background: white;
+
+  padding: 18px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+  z-index: 10000;
+
+  color: #4A2A15;
+}
+
+/* =========================================================
+   LAPTOP - जब जगह कम हो
+   Logo LEFT में ही रहेगा
+========================================================= */
+
+@media (max-width: 1150px) {
+
+  .site-header .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .site-header .header-grid {
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    grid-template-rows: auto auto;
+
+    column-gap: 18px;
+    row-gap: 8px;
+  }
+
+  /* LOGO हमेशा LEFT */
+
+  .site-header .brand-row {
+    grid-column: 1;
+
+    grid-row: 1;
+
+    justify-self: start;
+  }
+
+  /* Login/language हमेशा RIGHT */
+
+  .site-header .right-controls {
+    grid-column: 2;
+
+    grid-row: 1;
+
+    justify-self: end;
+  }
+
+  /* Navigation नीचे */
+
+  .site-header .nav-links {
+    grid-column: 1 / -1;
+
+    grid-row: 2;
+
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .site-header .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .site-header .brand-row .logo {
+    width: 64px !important;
+    height: 64px !important;
+
+    min-width: 64px !important;
+    min-height: 64px !important;
+
+    max-width: 64px !important;
+    max-height: 64px !important;
+  }
+
+  .site-header .brand-row strong {
+    font-size: 23px;
+  }
+
+  .site-header .brand-copy {
+    font-size: 11px;
+  }
+
+  .site-header .nav-link {
+    font-size: 14px;
+
+    padding: 6px 7px;
+  }
+}
+
+/* =========================================================
+   SMALL LAPTOP / TABLET
+   Logo LEFT + controls RIGHT
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .site-header .container {
+    padding: 10px 14px 14px;
+  }
+
+  .site-header .header-grid {
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    grid-template-rows: auto auto;
+
+    column-gap: 12px;
+    row-gap: 8px;
+
+    align-items: center;
+  }
+
+  /* LOGO ALWAYS LEFT */
+
+  .site-header .brand-row {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: auto;
+
+    justify-self: start;
+
+    justify-content: flex-start;
+  }
+
+  .site-header .brand-row .logo {
+    width: 64px !important;
+    height: 64px !important;
+
+    min-width: 64px !important;
+    min-height: 64px !important;
+
+    max-width: 64px !important;
+    max-height: 64px !important;
+  }
+
+  .site-header .brand-row strong {
+    font-size: 23px;
+  }
+
+  .site-header .brand-copy {
+    font-size: 11px;
+  }
+
+  /* CONTROLS ALWAYS RIGHT */
+
+  .site-header .right-controls {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: auto;
+
+    justify-self: end;
+
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+  }
+
+  /* NAVIGATION FULL SECOND ROW */
+
+  .site-header .nav-links {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 4px 7px;
+  }
+
+  .site-header .nav-link {
+    font-size: 13px;
+
+    padding: 5px 6px;
+  }
+}
+
+/* =========================================================
+   PHONE ONLY
+========================================================= */
+
+@media (max-width: 450px) {
+
+  .site-header .container {
+    padding: 10px 10px 12px;
+  }
+
+  .site-header .header-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 9px;
+  }
+
+  .site-header .brand-row {
+    width: 100%;
+
+    justify-content: flex-start;
+  }
+
+  .site-header .brand-row .logo {
+    width: 58px !important;
+    height: 58px !important;
+
+    min-width: 58px !important;
+    min-height: 58px !important;
+
+    max-width: 58px !important;
+    max-height: 58px !important;
+  }
+
+  .site-header .brand-row strong {
+    font-size: 21px;
+  }
+
+  .site-header .brand-copy {
+    font-size: 10px;
+  }
+
+  .site-header .right-controls {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .site-header .nav-links {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    gap: 3px 5px;
+  }
+
+  .site-header .nav-link {
+    font-size: 12px;
+
+    padding: 5px 5px;
+  }
+
+  .site-header .lang-btn,
+  .site-header .login-btn,
+  .site-header .profile-btn {
+    font-size: 12px;
+
+    padding: 7px 9px;
+  }
+}
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 450px) {
+
+  .site-header .brand-row .logo {
+    width: 58px !important;
+    height: 58px !important;
+
+    min-width: 58px !important;
+    min-height: 58px !important;
+
+    max-width: 58px !important;
+    max-height: 58px !important;
+  }
+
+  .site-header .brand-row strong {
+    font-size: 21px;
+  }
+
+  .site-header .brand-copy {
+    font-size: 10px;
+  }
+
+  .site-header .nav-link {
+    font-size: 12px;
+
+    padding: 5px 5px;
+  }
+
+  .site-header .lang-btn,
+  .site-header .login-btn,
+  .site-header .profile-btn {
+    font-size: 12px;
+
+    padding: 7px 9px;
+  }
+
+  .site-header .dropdown {
+    position: fixed;
+
+    left: 12px;
+    right: 12px;
+
+    top: 120px;
+
+    width: auto;
+
+    max-width: none;
+  }
+
+  .site-header .notification-dropdown {
+    right: 50%;
+
+    transform: translateX(50%);
+  }
+}
+
+/* =========================
+   NO HORIZONTAL SCROLL
+========================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}

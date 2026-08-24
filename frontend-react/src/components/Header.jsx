@@ -1,0 +1,233 @@
+import NotificationBell from "./NotificationBell";
+import { useState, useEffect, useRef } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import LogoutButton from "./LogoutButton";
+import "./header.css";
+import logo from "../assets/logo.png";
+
+function Header({ navItems = [], t = {}, lang = "en", setLang = () => {} }) {
+  const [open, setOpen] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const navigate = useNavigate();
+  const dropdownRef = useRef(null);
+
+  let user = null;
+
+  try {
+    const localData = localStorage.getItem("lokartUser");
+
+    if (localData) {
+      const parsedData = JSON.parse(localData);
+      user = parsedData.user || parsedData.data || parsedData;
+    }
+  } catch (error) {
+    localStorage.removeItem("lokartUser");
+    localStorage.removeItem("token");
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem("lokartUser");
+    localStorage.removeItem("token");
+
+    setOpen(false);
+    navigate("/login");
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
+        setOpen(false);
+        setShowNotifications(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        setShowNotifications(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const profileDisplay = user
+    ? user.mobile ||
+      user.phone ||
+      user.whatsappNumber ||
+      user.email ||
+      "Profile"
+    : "";
+
+  return (
+    <header className="site-header">
+      <div className="container header-grid">
+
+        {/* LOGO */}
+        <div
+          className="brand-row"
+          onClick={() => navigate("/")}
+          style={{ cursor: "pointer" }}
+        >
+          <img
+            src={logo}
+            alt="LokArt Logo"
+            className="logo"
+          />
+
+          <div>
+            <strong>LokArt</strong>
+
+            <p className="brand-copy">
+              {t.tagline || "Gaon ki shaan, desh ki pehchan"}
+            </p>
+          </div>
+        </div>
+
+        {/* NAVIGATION */}
+        <nav className="nav-links">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              {t[item.key] || item.key}
+            </NavLink>
+          ))}
+
+          <NavLink
+            to="/payment"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            💳 Payment
+          </NavLink>
+        </nav>
+
+        {/* RIGHT SIDE */}
+        <div className="right-controls">
+
+          {/* Language Switch */}
+          <div className="lang-switcher">
+            <button
+              className={lang === "en" ? "lang-btn active" : "lang-btn"}
+              onClick={() => setLang("en")}
+            >
+              EN
+            </button>
+
+            <button
+              className={lang === "hi" ? "lang-btn active" : "lang-btn"}
+              onClick={() => setLang("hi")}
+            >
+              हिंदी
+            </button>
+          </div>
+
+          {/* Notification */}
+          <div
+            style={{
+              position: "relative",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <NotificationBell />
+          </div>
+
+          {user ? (
+            <div
+              className="profile-box"
+              ref={dropdownRef}
+            >
+              <button
+                className="profile-btn"
+                onClick={() => setOpen(!open)}
+              >
+                📱 {profileDisplay} {open ? "▲" : "▼"}
+              </button>
+
+              {open && (
+                <div className="dropdown">
+
+                  <p className="dropdown-item">
+                    👤 {user.name || "User"}
+                  </p>
+
+                  <p className="dropdown-item">
+                    <a
+                      href={`tel:${user.phone}`}
+                      style={{
+                        color: "inherit",
+                        textDecoration: "none",
+                      }}
+                    >
+                      📞 {user.phone || "N/A"}
+                    </a>
+                  </p>
+
+                  {user.email && (
+                    <p className="dropdown-item">
+                      <a
+                        href={`mailto:${user.email}`}
+                        style={{
+                          color: "inherit",
+                          textDecoration: "none",
+                        }}
+                      >
+                        ✉️ {user.email}
+                      </a>
+                    </p>
+                  )}
+
+                  <hr />
+
+                  <LogoutButton onLogout={handleLogout} />
+
+                </div>
+              )}
+            </div>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+              }}
+            >
+              <button
+                className="login-btn"
+                onClick={() => navigate("/login")}
+              >
+                {t.login || "Login"}
+              </button>
+
+              <button
+                className="login-btn"
+                onClick={() => navigate("/register")}
+              >
+                {t.register || "Register"}
+              </button>
+            </div>
+          )}
+
+        </div>
+
+      </div>
+    </header>
+  );
+}
+
+export default Header;
