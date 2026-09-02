@@ -52,7 +52,7 @@ export default function Dashboard({ t = {} }) {
 
         <div className="action-grid">
           <button className="action-btn" onClick={() => navigate("/post-work")}>{t.actionPostWork || "➕ Post Work"}</button>
-          <button className="action-btn" onClick={() => alert("BUTTON CLICK HO RAHA HAI")}>{t.actionSellProduct || "🛒 Sell Product"}</button>
+          <button className="action-btn" onClick={() => navigate("/sell-product")}>{t.actionSellProduct || "🛒 Sell Product"}</button>
           <button className="action-btn" onClick={() => navigate("/find-work")}>{t.actionFindWorker || "👷 Find Worker"}</button>
           <WhatsAppButton />
         </div>
