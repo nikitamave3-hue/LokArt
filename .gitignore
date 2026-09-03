@@ -6,3 +6,4 @@ dist/
 structure/
 structure.7z
 backend/resetAdminPassword.js
+.vercel
