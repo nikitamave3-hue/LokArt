@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import carpenterImage from "../assets/home/carpenter.png";
+import electricianImage from "../assets/home/electrician.png";
+import housePainterImage from "../assets/home/house-painter.png";
 
 function Services() {
   const navigate = useNavigate();
@@ -59,6 +62,24 @@ function Services() {
       description: "गाँव के लोगों का कोई भी खास हुनर या handmade काम।",
     },
     {
+      title: "Carpenter",
+      hindi: "बढ़ई का काम",
+      image: carpenterImage,
+      description: "फर्नीचर, दरवाजे, खिड़कियों और लकड़ी के interior work के लिए कुशल बढ़ई।",
+    },
+    {
+      title: "Electrician",
+      hindi: "इलेक्ट्रिशियन",
+      image: electricianImage,
+      description: "घर की wiring, repair और electrical installation के लिए professional electricians।",
+    },
+    {
+      title: "House Painter",
+      hindi: "घर की पेंटिंग",
+      image: housePainterImage,
+      description: "अनुभवी workers द्वारा घर की interior और exterior painting services।",
+    },
+    {
       title: "Other / Add Your Skill",
       hindi: "अपना हुनर जोड़ें",
       icon: "➕",
@@ -91,7 +112,11 @@ function Services() {
       <div className="card-grid three-up">
         {services.map((service) => (
           <article className="card service-card" key={service.title}>
-            <div className="service-icon">{service.icon}</div>
+            {service.image ? (
+              <img src={service.image} alt={service.title} />
+            ) : (
+              <div className="service-icon">{service.icon}</div>
+            )}
 
             <h3>{service.title}</h3>
 

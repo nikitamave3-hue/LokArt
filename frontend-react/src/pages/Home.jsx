@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import API from "../api/api";
 import "./Home.css";
 
+import handmadeCraftsImage from "../assets/home/handmade-crafts.png";
+import homeDecorImage from "../assets/home/home-decor.png";
+import paintingsImage from "../assets/home/paintings.png";
+import potteryImage from "../assets/home/pottery.png";
+import woodCraftImage from "../assets/home/wood-craft.png";
+import textilesImage from "../assets/home/textiles.png";
+import carpenterImage from "../assets/home/carpenter.png";
+import electricianImage from "../assets/home/electrician.png";
+import housePainterImage from "../assets/home/house-painter.png";
 function Home() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,27 +19,27 @@ function Home() {
   const categories = [
     {
       title: "Handmade Crafts",
-      image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600"
+      image: handmadeCraftsImage
     },
     {
       title: "Home Decor",
-      image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600"
+      image: homeDecorImage
     },
     {
       title: "Paintings",
-      image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600"
+      image: paintingsImage
     },
     {
       title: "Pottery",
-      image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600"
+      image: potteryImage
     },
     {
       title: "Wood Craft",
-      image: "https://images.unsplash.com/photo-1517705008128-361805f42e86?w=600"
+      image: woodCraftImage
     },
     {
       title: "Textiles",
-      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"
+      image: textilesImage
     }
   ];
 
@@ -285,7 +294,7 @@ function Home() {
 
             <div className="card">
               <img
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600"
+                src={carpenterImage}
                 alt="Carpenter"
               />
 
@@ -305,7 +314,7 @@ function Home() {
 
             <div className="card">
               <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600"
+                src={electricianImage}
                 alt="Electrician"
               />
 
@@ -325,7 +334,7 @@ function Home() {
 
             <div className="card">
               <img
-                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600"
+                src={housePainterImage}
                 alt="Painter"
               />
 
