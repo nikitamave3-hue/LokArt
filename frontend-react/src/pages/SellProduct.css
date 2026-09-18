@@ -1,0 +1,9 @@
+
+.sell-product-card {
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.sell-product-card:hover {
+  border-top: 14px solid #ff7a00 !important;
+  box-shadow: 0 14px 35px rgba(184,106,40,0.16);
+}

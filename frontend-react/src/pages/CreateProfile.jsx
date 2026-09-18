@@ -22,63 +22,16 @@ export default function CreateProfile({ t = {} }) {
   });
 
   useEffect(() => {
-    const loadProfile = async () => {
-      try {
-        const saved = localStorage.getItem("lokartUser");
-
-        if (!saved) return;
-
-        const parsed = JSON.parse(saved);
-        const currentUser = parsed.user || parsed;
-
-        setUser(currentUser);
-
-        setForm((prev) => ({
-          ...prev,
-          name: currentUser.name || "",
-          phone: currentUser.phone || "",
-          location: currentUser.village || "",
-        }));
-
-        try {
-          const response = await API.get("/artists");
-
-          const artists = Array.isArray(response.data)
-            ? response.data
-            : response.data?.data || [];
-
-          const existingArtist = artists.find(
-            (artist) =>
-              artist.user?._id === currentUser._id ||
-              artist.user === currentUser._id
-          );
-
-          if (existingArtist) {
-            setForm((prev) => ({
-              ...prev,
-              name: existingArtist.name || prev.name,
-              category: existingArtist.category || "",
-              skills: Array.isArray(existingArtist.skills)
-                ? existingArtist.skills.join(", ")
-                : existingArtist.skills || "",
-              business: existingArtist.business || "",
-              experience: existingArtist.experience ?? "",
-              whatsapp: existingArtist.whatsapp || "",
-              location: existingArtist.location || prev.location,
-              description: existingArtist.description || "",
-              phone: existingArtist.phone || prev.phone,
-            }));
-          }
-        } catch (error) {
-          console.error("EXISTING ARTIST LOAD ERROR:", error);
-        }
-      } catch (error) {
-        console.error("PROFILE LOAD ERROR:", error);
-      }
-    };
-
-    loadProfile();
+    const saved = localStorage.getItem("lokartUser");
+    if (!saved) return;
+    try {
+      const parsed = JSON.parse(saved);
+      setUser(parsed.user || parsed);
+    } catch (error) {
+      console.error("PROFILE USER LOAD ERROR:", error);
+    }
   }, []);
+
 
   const handleChange = (e) => {
     setForm({

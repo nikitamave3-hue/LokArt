@@ -2,6 +2,12 @@ import { useNavigate } from "react-router-dom";
 import carpenterImage from "../assets/home/carpenter.png";
 import electricianImage from "../assets/home/electrician.png";
 import housePainterImage from "../assets/home/house-painter.png";
+import handmadeCraftsImage from "../assets/home/handmade-crafts.png";
+import homeDecorImage from "../assets/home/home-decor.png";
+import paintingsImage from "../assets/home/paintings.png";
+import potteryImage from "../assets/home/pottery.png";
+import woodCraftImage from "../assets/home/wood-craft.png";
+import textilesImage from "../assets/home/textiles.png";
 
 function Services() {
   const navigate = useNavigate();
@@ -10,55 +16,55 @@ function Services() {
     {
       title: "Pottery & Clay Work",
       hindi: "मिट्टी के बर्तन और कलाकारी",
-      icon: "🏺",
+      image: potteryImage,
       description: "गाँव के कुम्हारों द्वारा हाथ से बनाए गए मिट्टी के सामान।",
     },
     {
       title: "Handmade Crafts",
       hindi: "हस्तनिर्मित सामान",
-      icon: "🧺",
+      image: handmadeCraftsImage,
       description: "हाथ से बनाए गए पारंपरिक और खूबसूरत हस्तशिल्प।",
     },
     {
       title: "Pickle & Papad",
       hindi: "अचार और पापड़",
-      icon: "🥭",
+      image: textilesImage,
       description: "गाँव के घरों में बनाए गए स्वादिष्ट स्थानीय खाद्य पदार्थ।",
     },
     {
       title: "Embroidery & Stitching",
       hindi: "कढ़ाई और सिलाई",
-      icon: "🧵",
+      image: textilesImage,
       description: "स्थानीय महिलाओं और कारीगरों द्वारा किया गया हाथ का काम।",
     },
     {
       title: "Folk Art",
       hindi: "लोक कला",
-      icon: "🎨",
+      image: paintingsImage,
       description: "गाँव की पारंपरिक कला, चित्रकारी और सजावटी सामान।",
     },
     {
       title: "Bamboo & Basket Work",
       hindi: "बांस और टोकरी का काम",
-      icon: "🎋",
+      image: woodCraftImage,
       description: "बांस, लकड़ी और प्राकृतिक सामग्री से बने सामान।",
     },
     {
       title: "Handmade Jewellery",
       hindi: "हस्तनिर्मित आभूषण",
-      icon: "💍",
+      image: homeDecorImage,
       description: "स्थानीय कारीगरों द्वारा बनाए गए अनोखे handmade jewellery items।",
     },
     {
       title: "Local Food Products",
       hindi: "स्थानीय खाद्य उत्पाद",
-      icon: "🌾",
+      image: homeDecorImage,
       description: "सांगरी, मसाले और गाँव में बनाए जाने वाले अन्य स्थानीय खाद्य उत्पाद।",
     },
     {
       title: "Other Local Skills",
       hindi: "अन्य स्थानीय हुनर",
-      icon: "✋",
+      image: handmadeCraftsImage,
       description: "गाँव के लोगों का कोई भी खास हुनर या handmade काम।",
     },
     {

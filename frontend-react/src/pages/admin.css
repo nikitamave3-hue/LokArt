@@ -940,3 +940,20 @@ to {
 
 
 }
+
+.stat-card {
+  border: 1px solid #F4D4B2;
+  border-top: 1px solid #F4D4B2;
+  border-radius: 22px;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: #D9534F;
+  border-top: 14px solid #ff7a00;
+  box-shadow: 0 14px 35px rgba(184, 106, 40, 0.16);
+  z-index: 2;
+}

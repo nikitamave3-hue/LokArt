@@ -1,3 +1,5 @@
+import AdminDashboard from "./pages/AdminDashboard";
+import Dashboard from "./pages/Dashboard";
 import NewDashboard from "./pages/NewDashboard";
 import { useEffect, useState } from "react";
 import {
@@ -74,7 +76,6 @@ function App() {
     { key: "dashboard", to: "/dashboard" },
     { key: "postwork", to: "/post-work" },
     { key: "orders", to: "/user-orders" },
-    { key: "admin", to: "/admin-login" },
   ];
 
   const t = translations[lang] || translations.en;
@@ -161,6 +162,7 @@ function App() {
 
                 <Route
                   path="/dashboard"
+                  element={<Dashboard t={t} />}
                 />
 
                 <Route
@@ -183,12 +185,12 @@ function App() {
                   element={<UserOrders t={t} />}
                 />
 
+              </Route>
+
                 <Route
                   path="/sell-product"
                   element={<SellProduct t={t} />}
                 />
-
-              </Route>
 
               {/* Admin Login */}
               <Route
@@ -200,7 +202,7 @@ function App() {
               <Route element={<AdminRoute />}>
 
                 <Route
-                  path="/admin"
+                  path="/admin" element={<AdminDashboard />}
                 />
 
               </Route>

@@ -1,3 +1,4 @@
+import "./SellProduct.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api/api";
@@ -98,7 +99,7 @@ function SellProduct() {
       minHeight: "calc(100vh - 100px)",
       padding: "45px 20px 70px",
       background:
-        "linear-gradient(135deg, #fff7ed 0%, #fffaf5 50%, #fdf1df 100%)",
+        "linear-gradient(135deg, #FFF0DF 0%, #FFFAF6 50%, #FFF0DF 100%)",
       boxSizing: "border-box",
     },
 
@@ -110,8 +111,8 @@ function SellProduct() {
 
     badge: {
       display: "inline-block",
-      background: "#fff0df",
-      color: "#9a4d12",
+      background: "#FFF0DF",
+      color: "#B86A28",
       padding: "8px 18px",
       borderRadius: "30px",
       fontWeight: "700",
@@ -119,14 +120,14 @@ function SellProduct() {
     },
 
     title: {
-      color: "#5b2f18",
+      color: "#4A2A15",
       fontSize: "38px",
       margin: "0 0 10px",
       fontWeight: "800",
     },
 
     subtitle: {
-      color: "#795548",
+      color: "#5b3b27",
       fontSize: "16px",
       margin: 0,
     },
@@ -136,11 +137,11 @@ function SellProduct() {
       borderRadius: "22px",
       padding: "32px",
       boxShadow: "0 12px 35px rgba(91,47,24,.14)",
-      border: "1px solid #f0dfce",
+      border: "1px solid #F4D4B2",
     },
 
     sectionTitle: {
-      color: "#5b2f18",
+      color: "#4A2A15",
       marginTop: 0,
       marginBottom: "25px",
     },
@@ -158,7 +159,7 @@ function SellProduct() {
     label: {
       display: "block",
       marginBottom: "7px",
-      color: "#5b2f18",
+      color: "#4A2A15",
       fontWeight: "700",
       fontSize: "14px",
     },
@@ -167,10 +168,10 @@ function SellProduct() {
       width: "100%",
       boxSizing: "border-box",
       padding: "13px 15px",
-      border: "1px solid #d9c8b8",
+      border: "1px solid #F4D4B2",
       borderRadius: "10px",
-      background: "#fffdfb",
-      color: "#3e2723",
+      background: "#FFFFFF",
+      color: "#4A2A15",
       fontSize: "15px",
       outline: "none",
     },
@@ -179,20 +180,20 @@ function SellProduct() {
       width: "100%",
       boxSizing: "border-box",
       padding: "13px 15px",
-      border: "1px solid #d9c8b8",
+      border: "1px solid #F4D4B2",
       borderRadius: "10px",
-      background: "#fffdfb",
-      color: "#3e2723",
+      background: "#FFFFFF",
+      color: "#4A2A15",
       fontSize: "15px",
       outline: "none",
       resize: "vertical",
     },
 
     uploadBox: {
-      border: "2px dashed #d8b28f",
+      border: "2px dashed #E8A95B",
       borderRadius: "14px",
       padding: "22px",
-      background: "#fffaf5",
+      background: "#FFFAF6",
     },
 
     preview: {
@@ -202,7 +203,7 @@ function SellProduct() {
       objectFit: "cover",
       borderRadius: "14px",
       marginTop: "15px",
-      border: "2px solid #d8b28f",
+      border: "2px solid #E8A95B",
     },
 
     actions: {
@@ -216,8 +217,8 @@ function SellProduct() {
       padding: "13px 22px",
       border: "none",
       borderRadius: "10px",
-      background: "#eee3da",
-      color: "#684331",
+      background: "#F4D4B2",
+      color: "#4A2A15",
       fontWeight: "700",
       cursor: "pointer",
     },
@@ -226,7 +227,7 @@ function SellProduct() {
       padding: "13px 28px",
       border: "none",
       borderRadius: "10px",
-      background: "linear-gradient(135deg,#b85c1e,#e47c28)",
+      background: "#ff7a00",
       color: "#ffffff",
       fontWeight: "700",
       cursor: loading ? "not-allowed" : "pointer",
@@ -275,7 +276,7 @@ function SellProduct() {
           </p>
         </div>
 
-        <div style={styles.card}>
+        <div className="sell-product-card" style={styles.card}>
           <h2 style={styles.sectionTitle}>
             🛍️ Product Details
           </h2>
@@ -436,7 +437,7 @@ function SellProduct() {
                 ) : (
                   <p
                     style={{
-                      color: "#795548",
+                      color: "#5b3b27",
                       marginBottom: 0,
                     }}
                   >

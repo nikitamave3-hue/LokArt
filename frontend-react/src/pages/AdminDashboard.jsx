@@ -97,9 +97,9 @@ function AdminDashboard() {
 
       const usersData = usersRes.data.users || [];
 
-      const productsData = productsRes.data || [];
+      const productsData = Array.isArray(productsRes.data) ? productsRes.data : (productsRes.data?.data || productsRes.data?.products || []);
 
-      const ordersData = ordersRes.data || [];
+      const ordersData = Array.isArray(ordersRes.data) ? ordersRes.data : (ordersRes.data?.data || ordersRes.data?.orders || []);
 
       const artistsData = artistsRes.data || [];
 

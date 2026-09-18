@@ -167,10 +167,9 @@ function Marketplace({ t = {} }) {
     return premiumFallbackImages[index % premiumFallbackImages.length];
   };
 
-  const handleImageError = (e, index) => {
+  const handleImageError = (e) => {
     e.currentTarget.onerror = null;
-    e.currentTarget.src =
-      premiumFallbackImages[index % premiumFallbackImages.length];
+    e.currentTarget.style.visibility = "hidden";
   };
 
   return (

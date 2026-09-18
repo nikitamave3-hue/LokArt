@@ -82,11 +82,7 @@ function Login({ t = {} }) {
         user?.role || payload?.role || "user"
       ).toLowerCase();
 
-      if (userRole === "admin") {
-        navigate("/admin", { replace: true });
-      } else {
-        navigate(redirectTo, { replace: true });
-      }
+      navigate(redirectTo, { replace: true });
     } catch (error) {
       console.error("LOGIN ERROR:", error);
 
