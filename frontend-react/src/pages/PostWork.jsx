@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./postWork.css";
 
+import { checkSessionValidity } from "../components/ProtectedRoute";
 import { getPosts, savePosts } from "../utils/storage";
 import useSyncStorage from "../hooks/useSyncStorage";
 
 export default function PostWork({ t = {} }) {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [posts, setPosts] = useState([]);
@@ -24,6 +27,11 @@ export default function PostWork({ t = {} }) {
   // SUBMIT POST
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!checkSessionValidity().isValid) {
+      navigate("/login", { state: { from: "/post-work" } });
+      return;
+    }
 
     if (!title.trim() || !description.trim()) return;
 

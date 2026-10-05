@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import API from "../api/api";
 import "./login.css";
 
 function Login({ t = {} }) {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const redirectTo = location.state?.from?.pathname || "/dashboard";
 
   const [formData, setFormData] = useState({
     email: "",
@@ -82,7 +79,7 @@ function Login({ t = {} }) {
         user?.role || payload?.role || "user"
       ).toLowerCase();
 
-      navigate(redirectTo, { replace: true });
+      navigate("/dashboard", { replace: true });
     } catch (error) {
       console.error("LOGIN ERROR:", error);
 

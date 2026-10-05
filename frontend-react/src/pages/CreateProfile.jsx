@@ -8,6 +8,7 @@ export default function CreateProfile({ t = {} }) {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showAuthPrompt, setShowAuthPrompt] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
@@ -43,9 +44,8 @@ export default function CreateProfile({ t = {} }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!user?._id) {
-      alert("Please login first.");
-      navigate("/login");
+    if (!user?._id || !localStorage.getItem("token")) {
+      setShowAuthPrompt(true);
       return;
     }
 
@@ -107,33 +107,6 @@ export default function CreateProfile({ t = {} }) {
     }
   };
 
-  if (!user) {
-    return (
-      <div className="dashboard-container">
-        <div className="card">
-          <h2>Welcome to LokArt</h2>
-          <p>Please login or register to create your artisan profile.</p>
-
-          <div className="actions" style={{ gap: "12px", marginTop: "20px" }}>
-            <button
-              className="btn"
-              onClick={() => navigate("/register")}
-            >
-              Register Now
-            </button>
-
-            <button
-              className="btn btn-secondary"
-              onClick={() => navigate("/login")}
-            >
-              Login
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
@@ -145,6 +118,30 @@ export default function CreateProfile({ t = {} }) {
 
       <div className="card">
         <form onSubmit={handleSubmit}>
+
+          {showAuthPrompt && (
+            <div className="form-error">
+              Log in or register to save your artisan profile.
+              <div className="actions" style={{ gap: "12px", marginTop: "12px" }}>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() =>
+                    navigate("/login", { state: { from: "/create-profile" } })
+                  }
+                >
+                  Login
+                </button>
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => navigate("/register")}
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+          )}
 
           <label>Name</label>
           <input

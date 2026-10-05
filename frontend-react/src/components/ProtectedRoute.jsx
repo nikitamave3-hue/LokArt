@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const normalizeUser = (rawUser) => {
   if (!rawUser) return null;
@@ -21,24 +21,25 @@ const normalizeUser = (rawUser) => {
   return rawUser;
 };
 
-const checkSessionValidity = () => {
+export const checkSessionValidity = () => {
   const token = localStorage.getItem("token");
   const localUser = localStorage.getItem("lokartUser");
 
-  if (!token || !localUser) {
+  if (!token) {
     return { isValid: false, user: null };
   }
 
-  try {
-    const parsedData = JSON.parse(localUser);
-    const user = normalizeUser(parsedData);
+  let user = null;
 
-    return { isValid: true, user };
-  } catch (error) {
-    localStorage.removeItem("token");
-    localStorage.removeItem("lokartUser");
-    return { isValid: false, user: null };
+  if (localUser) {
+    try {
+      user = normalizeUser(JSON.parse(localUser));
+    } catch {
+      localStorage.removeItem("lokartUser");
+    }
   }
+
+  return { isValid: true, user };
 };
 
 const isAdminUser = (user) => {
@@ -47,10 +48,11 @@ const isAdminUser = (user) => {
 };
 
 export function ProtectedRoute() {
+  const location = useLocation();
   const { isValid } = checkSessionValidity();
 
   if (!isValid) {
-    return <Navigate to="/login" state={{ from: window.location.pathname + window.location.search + window.location.hash }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   return <Outlet />;
@@ -71,10 +73,24 @@ export function AdminRoute() {
 }
 
 export function PublicOnlyRoute() {
+  const location = useLocation();
   const { isValid, user } = checkSessionValidity();
 
   if (isValid) {
-    return <Navigate to={isAdminUser(user) ? "/admin" : "/dashboard"} replace />;
+    const from = location.state?.from;
+    const requestedPath =
+      typeof from === "string"
+        ? from
+        : from?.pathname
+          ? `${from.pathname}${from.search || ""}${from.hash || ""}`
+          : null;
+
+    return (
+      <Navigate
+        to={requestedPath || (isAdminUser(user) ? "/admin" : "/dashboard")}
+        replace
+      />
+    );
   }
 
   return <Outlet />;

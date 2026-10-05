@@ -1,8 +1,12 @@
 import axios from "axios";
 
+const baseURL = import.meta.env.PROD
+  ? "https://lokart-backend.onrender.com/api"
+  : import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
-  timeout: 10000,
+  baseURL,
+  timeout: import.meta.env.PROD ? 60000 : 10000,
   headers: {},
 });
 

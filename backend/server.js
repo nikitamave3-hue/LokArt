@@ -9,6 +9,8 @@ const app = express();
 
 
 const allowedOrigins = [
+  "http://localhost:5500",
+  "http://127.0.0.1:5500",
   "http://localhost:5173",
   "http://localhost:5174",
   "http://localhost:5175",
@@ -27,6 +29,12 @@ const allowedOrigins = [
   "http://127.0.0.1:5180",
   "http://localhost:3000",
   "http://localhost:3001",
+  "https://frontend-react-sand.vercel.app",
+  "https://frontend-react-ic-2613.vercel.app",
+  ...(process.env.FRONTEND_URL || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
 ];
 app.use(
   cors({

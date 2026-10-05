@@ -157,34 +157,33 @@ function App() {
                 />
               </Route>
 
+              {/* Public User Pages */}
+              <Route
+                path="/dashboard"
+                element={<Dashboard t={t} />}
+              />
+
+              <Route
+                path="/post-work"
+                element={<PostWork t={t} />}
+              />
+
+              <Route
+                path="/user-orders"
+                element={<UserOrders t={t} />}
+              />
+
+              <Route
+                path="/orders"
+                element={<UserOrders t={t} />}
+              />
+
               {/* Protected User Pages */}
               <Route element={<ProtectedRoute />}>
-
-                <Route
-                  path="/dashboard"
-                  element={<Dashboard t={t} />}
-                />
-
-                <Route
-                  path="/post-work"
-                  element={<PostWork t={t} />}
-                />
-
-                <Route
-                  path="/user-orders"
-                  element={<UserOrders t={t} />}
-                />
-
                 <Route
                   path="/my-bookings"
                   element={<MyBookings />}
                 />
-
-                <Route
-                  path="/orders"
-                  element={<UserOrders t={t} />}
-                />
-
               </Route>
 
                 <Route

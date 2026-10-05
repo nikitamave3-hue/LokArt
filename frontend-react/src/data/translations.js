@@ -10,6 +10,9 @@ const translations = {
     contact: 'Contact',
     payment: 'Payment',
     admin: 'Admin Dashboard',
+    dashboard: 'Dashboard',
+    postwork: 'Post Work',
+    orders: 'Orders',
     tagline: 'Gaon ki shaan, desh ki pehchan',
     heroTitle: 'Simple local marketplace for village products and trusted services.',
     heroIntro:
@@ -78,6 +81,9 @@ const translations = {
     contact: 'संपर्क',
     payment: 'भुगतान',
     admin: 'व्यवस्थापक डैशबोर्ड',
+    dashboard: 'डैशबोर्ड',
+    postwork: 'काम पोस्ट करें',
+    orders: 'ऑर्डर',
     tagline: 'गाँव की शान, देश की पहचान',
     heroTitle:
       'गाँव के उत्पादों और भरोसेमंद सेवाओं के लिए एक सरल स्थानीय बाजार।',
