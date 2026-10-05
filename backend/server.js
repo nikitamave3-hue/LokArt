@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 
 dotenv.config();
@@ -75,10 +76,14 @@ app.get("/", (req, res) => {
   });
 });
 app.get("/health", (req, res) => {
-  res.status(200).json({
-    success: true,
-    status: "OK",
-    message: "LokArt Server is Healthy",
+  const isDatabaseConnected = mongoose.connection.readyState === 1;
+
+  res.status(isDatabaseConnected ? 200 : 503).json({
+    success: isDatabaseConnected,
+    status: isDatabaseConnected ? "OK" : "STARTING",
+    message: isDatabaseConnected
+      ? "LokArt Server is Healthy"
+      : "Waiting for MongoDB connection",
   });
 });
 app.use((req, res) => {
@@ -98,32 +103,24 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-const startServer = async () => {
-  try {
-    await connectDB();
-    console.log("✅ MongoDB Connected Successfully");
+const server = app.listen(PORT, () => {
+  console.log("==================================");
+  console.log("🚀 LokArt Server Running");
+  console.log(`🌐 Port : ${PORT}`);
+  console.log(`📦 Environment : ${process.env.NODE_ENV}`);
+  console.log("==================================");
+});
 
-    const server = app.listen(PORT, () => {
-      console.log("==================================");
-      console.log("🚀 LokArt Server Running");
-      console.log(`🌐 Port : ${PORT}`);
-      console.log(`📦 Environment : ${process.env.NODE_ENV}`);
-      console.log("==================================");
-    });
-
-    server.on("error", (error) => {
-      if (error.code === "EADDRINUSE") {
-        console.error(`❌ Port ${PORT} is already in use.`);
-        process.exit(1);
-      } else {
-        console.error("❌ Server Error:", error);
-        process.exit(1);
-      }
-    });
-  } catch (error) {
-    console.error("❌ Startup Error:", error);
-    process.exit(1);
+server.on("error", (error) => {
+  if (error.code === "EADDRINUSE") {
+    console.error(`❌ Port ${PORT} is already in use.`);
+  } else {
+    console.error("❌ Server Error:", error);
   }
-};
+  process.exit(1);
+});
 
-startServer();
+connectDB().catch((error) => {
+  console.error("❌ MongoDB Connection Error:", error.message);
+  process.exit(1);
+});
