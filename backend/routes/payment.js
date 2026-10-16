@@ -3,13 +3,25 @@ const Razorpay = require("razorpay");
 
 const router = express.Router();
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+const razorpayKeysConfigured =
+  Boolean(process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET);
+
+const razorpay = razorpayKeysConfigured
+  ? new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    })
+  : null;
 
 // Create Razorpay order
 router.post("/create-order", async (req, res) => {
+  if (!razorpay) {
+    return res.status(503).json({
+      success: false,
+      message: "Payments are temporarily unavailable. Razorpay is not configured.",
+    });
+  }
+
   try {
     const { amount, currency = "INR", receipt } = req.body;
 
